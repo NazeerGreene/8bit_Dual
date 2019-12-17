@@ -19,7 +19,7 @@ class Character:
         """Sets the zone attribute for the object;
            enter a nested list of [zone, Zone_starting_location]"""
         
-        if zoneDict == []:
+        if zoneList == []:
             return -1
         self.zones = zoneList
 
@@ -31,8 +31,8 @@ class Character:
         if self.zones == []:
             return -1
         
-        zone, zoneStart = random.choice(zones)
-        self.advance(zoneStart)
+        zone, zoneLoc = random.choice(self.zones)
+        self.advance(zoneLoc)
         return zone
         
 
@@ -48,7 +48,7 @@ class Enemy(Character):
         self.image = Image(self.window, (self.x, self.y), self.picture)
         
 
-    def advance(self, x, adjust = 130):
+    def advance(self, x, adjust = 150):
         """To move the Enemy object to the new location;
             adjust is used to fit the entire picture into the zone."""
         
@@ -72,7 +72,7 @@ class player(Character):
         self.window = window
         self.image = Image(self.window, (self.x, self.y), self.picture)
 
-    def advance(self, x, adjust = 7):
+    def advance(self, x, adjust = 25):
         """To move the Player object to the new location;
             adjust is used to fit the entire picture into the zone."""
         
@@ -86,6 +86,8 @@ class player(Character):
     def attacked(self):
         self.health -= 5
 
+    def dead(self):
+        return self.health <= 0
 
 
 class Bullet(Character):
