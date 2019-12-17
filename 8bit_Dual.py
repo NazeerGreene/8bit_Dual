@@ -28,12 +28,16 @@ pygame.display.set_caption("ARE YOU READY PLAYER ONE?")
  
 # 4 - Load assets: image(s), sounds,  etc.
 background = pygwidgets.Image(window, (0,0), "pictures/8bit_background.jpg")
-playerOne = player(window, 550)
-#enemy = Enemy(window, )
+playerOne = player(window, WINDOW_WIDTH/2 + 7)
+enemy = Enemy(window, WINDOW_WIDTH/2 - 130)
 
 # 5 - Initialize variables
 
+playerOne.setZones([1, WINDOW_WIDTH * .5], [2, WINDOW_WIDTH * .75])
+enemy.setZones([1, WINDOW_WIDTH * .5], [2, WINDOW_WIDTH * .25])
 
+blackScreen = pyghelpers.CountDownTimer(3)
+timeToAnswer = pyghelpers.CountDownTimer(2)
 
 # 6 - Loop forever
 while True:
@@ -54,7 +58,7 @@ while True:
     
     # 10 - Draw all screen elements
     background.draw()
-        
+    eneny.draw()
     playerOne.draw()
     
     
