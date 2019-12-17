@@ -48,7 +48,7 @@ class Enemy(Character):
         self.image = Image(self.window, (self.x, self.y), self.picture)
         
 
-    def advance(self, x, adjust = 60):
+    def advance(self, x, adjust = 130):
         """To move the Enemy object to the new location;
             adjust is used to fit the entire picture into the zone."""
         
@@ -72,7 +72,7 @@ class player(Character):
         self.window = window
         self.image = Image(self.window, (self.x, self.y), self.picture)
 
-    def advance(self, x, adjust = 20):
+    def advance(self, x, adjust = 7):
         """To move the Player object to the new location;
             adjust is used to fit the entire picture into the zone."""
         
